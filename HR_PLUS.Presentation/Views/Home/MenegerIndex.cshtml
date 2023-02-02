@@ -1,0 +1,53 @@
+﻿@model HR_PLUS.Application.Models.VMs.DashboardVMs.DashboardVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MenegerIndex</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Permissions)
+        {
+        <tr>
+            <td class="align-middle text-center">
+                <div class="d-flex flex-column justify-content-center">
+                    <label style="font-size:1em">@item.FullName</label>
+                </div>
+            </td>
+            <td class="align-middle text-center">
+                <div class="d-flex flex-column justify-content-center">
+                    <label style="font-size:1em">@item.PermissionTypeName</label>
+                </div>
+            </td>
+            <td class="align-middle text-center">
+                <div class="d-flex flex-column justify-content-center">
+                    <label style="font-size:1em">@item.PermissionStartDate.Date.ToString("dd-MM-yyyy")</label>
+                </div>
+            </td>
+            <td class="align-middle text-center">
+                <div class="d-flex flex-column justify-content-center">
+                    <label style="font-size:1em">@item.PermissionExpiryDate.Date.ToString("dd-MM-yyyy")</label>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+</body>
+</html>

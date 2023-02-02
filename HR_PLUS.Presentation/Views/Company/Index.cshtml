@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HR_PLUS.Application.Models.VMs.CompaniesVM>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TaxIdentificationNumber)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaxIdentificationNumber)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Update", "UpdateForAdmin", new { id = item.CompanyId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CompanyId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
